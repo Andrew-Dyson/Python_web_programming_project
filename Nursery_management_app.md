@@ -1,4 +1,4 @@
-## Create a web app to allow a nursery to manage details about the children they care for.
+## Create a web app to allow a nursery to manage details about the children they care for - inspired by vet management brief
 
 MVP - CRUD app
 - Register child (create) with name, date of birth, contact details, allergies
