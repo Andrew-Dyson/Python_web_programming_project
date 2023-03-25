@@ -1,7 +1,7 @@
 class Guardian:
-    def __init__ (self, name, contact_number, children, relations):
+    def __init__ (self, name, contact_number, id = None):
         self.name = name
         self.contact_number = contact_number
-        self.children = []
-        self.relations = []
+        self.id = id
+    
 

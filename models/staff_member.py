@@ -1,7 +1,7 @@
 class StaffMember:
-    def __init__ (self, name, room, assigned_children):
+    def __init__ (self, name, room, id = None):
         self.name = name
         self.room = room
-        self.assigned_children = []
+        self.id = id
+    
 
-        

@@ -1,7 +1,6 @@
 class Room:
-    def __init__(self, name, key_worker, children):
+    def __init__(self, name, id = None):
         self.name = name
-        self.key_worker = key_worker
-        self.children = []
+        self.id = id
 
-        
+
