@@ -1,9 +1,12 @@
 from db.run_sql import run_sql
 from models.staff_member import StaffMember
+import repositories.guardian_repository as guardian_repository
+import repositories.room_repository as room_repository
+import repositories.staff_member_repository as staff_member_repository
 
 def save(staff_member):
-    sql = "INSERT INTO staffmembers (name) VALUES (%s) RETURNING *"
-    values = [staff_member.name]
+    sql = "INSERT INTO staffmembers (name, room_id) VALUES (%s, %s) RETURNING *"
+    values = [staff_member.name, staff_member.room.id]
     results = run_sql(sql, values)
     id = results[0]['id']
     staff_member.id = id

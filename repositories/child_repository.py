@@ -39,14 +39,16 @@ def select(id):
         child = Child(selected_child['name'], selected_child['date_of_birth'], selected_child['allergies'], guardian, room, staff_member, selected_child['id'])
     return child
 
+def select_by_guardian(guardian_id):
+    sql = "SELECT"
 
 def delete_all():
     sql = "DELETE FROM children"
     run_sql(sql)
 
 
-def delete():
-    sql = "DELETE * FROM children WHERE id = %s"
+def delete(id):
+    sql = "DELETE FROM children WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)
     

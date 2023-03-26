@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<h1>Children</h1>
+
+{% for child in children %}
+    <h3> Name: {{ child.name }} </h3>
+    <h3> DOB: {{ child.date_of_birth }} </h3>
+    <h3> Allergies: {{ child.allergies }} </h3>
+    {% for guardian in guardians  %}
+        {% if child.guardian == guardian.id %}
+            <h3> Guardian contact number: {{ guardian.contact_number }} </h3>
+        {% endif %}
+    {% endfor %}
+    <form action="/children/delete/{{child.id}}" method="POST">
+        <input type="submit" value="Remove Child from Nursery">
+    </form>
+    <p><a href="/edit/{{child.id}}">Update Child Details</a></p>
+{% endfor %}
+
+
+{% endblock %}
+

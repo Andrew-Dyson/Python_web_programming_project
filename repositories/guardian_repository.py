@@ -30,6 +30,7 @@ def select(id):
         guardian = Guardian(result['name'], result['contact_number'], result['id'] )
     return guardian
 
+
 def delete_all():
     sql = "DELETE FROM guardians"
     run_sql(sql)

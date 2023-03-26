@@ -15,7 +15,8 @@ CREATE TABLE rooms (
 
 CREATE TABLE staffmembers (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255)
+    name VARCHAR(255),
+    room_id INT NOT NULL REFERENCES rooms(id) ON DELETE CASCADE
 );
 
 CREATE TABLE children (
