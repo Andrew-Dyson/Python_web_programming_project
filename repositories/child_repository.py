@@ -1,6 +1,10 @@
 from db.run_sql import run_sql
 
 from models.child import Child
+import repositories.guardian_repository as guardian_repository
+import repositories.room_repository as room_repository
+import repositories.staff_member_repository as staff_member_repository
+
 
 
 def save(child):
@@ -12,14 +16,43 @@ def save(child):
     return child
 
 def select_all():
+    children = []
+    sql = "SELECT * FROM children"
+    results = run_sql(sql)
+    for row in results:
+        child = Child(row['name'], row['date_of_birth'], row['allergies'], row['guardian_id'], row['room_id'], row['staff_member_id'], row['id'])
+        children.append(child)
+    return children
 
+
+def select(id):
+    sql = "SELECT * FROM children WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)
     
-def select():
+
+    if len(results) > 0:
+        selected_child = results[0]
+        guardian = guardian_repository.select(selected_child['guardian_id'])
+        room = room_repository.select(selected_child['room_id'])
+        staff_member = staff_member_repository.select(selected_child['staff_member_id'])
+        child = Child(selected_child['name'], selected_child['date_of_birth'], selected_child['allergies'], guardian, room, staff_member, selected_child['id'])
+    return child
+
 
 def delete_all():
+    sql = "DELETE FROM children"
+    run_sql(sql)
+
 
 def delete():
+    sql = "DELETE * FROM children WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)
     
-def update():
+def update(child):
+    sql = "UPDATE children SET name = %s WHERE id = %s"
+    values = [child.name, child.id]
+    run_sql(sql, values)
     
 
