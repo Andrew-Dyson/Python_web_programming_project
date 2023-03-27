@@ -23,7 +23,7 @@ def remove_child(id):
     child_repository.delete(id)
     return redirect("/children")
 
-@children_blueprint.route("/new", methods=['GET'])
+@children_blueprint.route("/children/new", methods=['GET'])
 def new_child():
     guardians = guardian_repository.select_all()
     rooms = room_repository.select_all()
@@ -31,7 +31,7 @@ def new_child():
     return render_template("new/new.html", guardians = guardians, rooms = rooms, staff_members = staff_members)
 
 
-@children_blueprint.route("/children/register", methods=['POST'])
+@children_blueprint.route("/children", methods=['POST'])
 def register_child():
     name = request.form['name']
     date_of_birth = int(request.form['date_of_birth'])
@@ -51,7 +51,7 @@ def register_child():
     return redirect("/children")
 
 
-@children_blueprint.route("/edit/<id>", methods=['GET'])
+@children_blueprint.route("/children/<id>", methods=['GET'])
 def edit_child(id):
     child = child_repository.select(id)
     guardians = guardian_repository.select_all()
@@ -59,7 +59,7 @@ def edit_child(id):
     staff_members = staff_member_repository.select_all()
     return render_template("edit/edit.html", child = child, guardians = guardians, rooms = rooms, staff_members = staff_members)
 
-@children_blueprint.route("/<id>/edit", methods=['POST'])
+@children_blueprint.route("/children/<id>", methods=['POST'])
 def update_child(id):
     name = request.form['name']
     date_of_birth = int(request.form['date_of_birth'])
