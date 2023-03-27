@@ -28,18 +28,17 @@ staff_member_repository.save(staff_member_1)
 staff_member_2 = StaffMember("Elliot", room_2, id = None)
 staff_member_repository.save(staff_member_2)
 
-child_1 = Child("Adele", "130421", "dairy", guardian_1, room_1, staff_member_1)
-print(child_1.staff_member.id)
+child_1 = Child("Adele", 210413, "dairy", guardian_1, room_1, staff_member_1)
 child_repository.save(child_1)
-child_2 = Child("Paula", "150120", None, guardian_2, room_2, staff_member_2, id = None)
+child_2 = Child("Paula", 200115, None, guardian_2, room_2, staff_member_2, id = None)
 child_repository.save(child_2)
-child_3 = Child("Albie", "201020", None, guardian_3, room_1, staff_member_1, id = None)
+child_3 = Child("Albie", 201020, None, guardian_3, room_1, staff_member_1, id = None)
 child_repository.save(child_3)
-child_4 = Child("Jack", "300418", "gluten", guardian_2, room_2, staff_member_2, id = None)
+child_4 = Child("Jack", 180430, "gluten", guardian_2, room_2, staff_member_2, id = None)
 child_repository.save(child_4)
-child_5 = Child("Doug", "230619", None, guardian_1, room_2, staff_member_2, id = None)
+child_5 = Child("Doug", 190623, None, guardian_1, room_2, staff_member_2, id = None)
 child_repository.save(child_5)
-child_6 = Child("Zoe", "110222", "nuts", guardian_3, room_1, staff_member_1, id = None)
+child_6 = Child("Zoe", 220211, "nuts", guardian_3, room_1, staff_member_1, id = None)
 child_repository.save(child_6)
 
 # children = child_repository.select_all()
@@ -53,8 +52,7 @@ child_repository.save(child_6)
 #             print(guardian.contact_number)
 
 
-180430
-220211
+
 
 
 # result = child_repository.select(34)
@@ -69,8 +67,10 @@ child_repository.save(child_6)
 # guardian_repository.select()
 # guardian_repository.delete(43)
 
-# room_repository.select_all()
+result = room_repository.select_all()
+print(result[1])
 # room_repository.select()
 
-# staff_member_repository.select_all()
+# result_2 = staff_member_repository.select_all()
+# print(result_2[0])
 # staff_member_repository.select()

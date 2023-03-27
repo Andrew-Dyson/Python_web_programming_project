@@ -34,14 +34,22 @@ def new_child():
 @children_blueprint.route("/children/register", methods=['POST'])
 def register_child():
     name = request.form['name']
-    date_of_birth = request.form['date_of_birth']
+    date_of_birth = int(request.form['date_of_birth'])
     allergies = request.form['allergies']
-    guardian = request.form['guardian']
-    room = request.form['room_id']
-    staff_member = request.form['staff_member_id']
+    guardian_id = request.form['guardian_id']
+    guardian = guardian_repository.select(guardian_id)
+    staff_members = staff_member_repository.select_all()
+    rooms = room_repository.select_all()
+    if date_of_birth <= 200830:
+        staff_member = staff_members[0]
+        room = rooms[0]
+    else:
+        staff_member = staff_members[1]
+        room = rooms[1]
     new_child = Child(name, date_of_birth, allergies, guardian, room, staff_member)
     child_repository.save(new_child)
     return redirect("/children")
+
 
 @children_blueprint.route("/edit/<id>", methods=['GET'])
 def edit_child(id):
@@ -49,8 +57,24 @@ def edit_child(id):
     guardians = guardian_repository.select_all()
     rooms = room_repository.select_all()
     staff_members = staff_member_repository.select_all()
-    return render_template("edit/edit.html", guardians = guardians, rooms = rooms, staff_members = staff_members)
+    return render_template("edit/edit.html", child = child, guardians = guardians, rooms = rooms, staff_members = staff_members)
 
-# @children_blueprint.route("/<id>/edit", methods=['POST'])
-# def update_child(id):
+@children_blueprint.route("/<id>/edit", methods=['POST'])
+def update_child(id):
+    name = request.form['name']
+    date_of_birth = int(request.form['date_of_birth'])
+    allergies = request.form['allergies']
+    guardian_id = request.form['guardian_id']
+    guardian = guardian_repository.select(guardian_id)
+    staff_members = staff_member_repository.select_all()
+    rooms = room_repository.select_all()
+    if date_of_birth <= 200830:
+        staff_member = staff_members[0]
+        room = rooms[0]
+    else:
+        staff_member = staff_members[1]
+        room = rooms[1]
+    new_child = Child(name, date_of_birth, allergies, guardian, room, staff_member)
+    child_repository.save(new_child)
+    return redirect("/children")
     

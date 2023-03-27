@@ -3,7 +3,29 @@
 {% block content %}
 
 <h1>Update Child Details</h1>
+<form class="form" action="/children/register" method="POST">
+    <label for="name">
+        <span>Name:</span>
+        <input id="name" name="name" type="text" value="{{child.name}}">
+    </label>
 
+    <label for="date_of_birth">
+        <span>Date of birth:</span>
+        <input id="date_of_birth" name="date_of_birth" type="text" value="{{child.date_of_birth}}">
+    </label>
+    <label for="allergies">
+        <span>Allergies:</span>
+        <input id="allergies" name="allergies" type="text" value="{{child.allergies}}">
+    </label>
+    <label for="guardian">Guardian</label>
+        <select name="guardian_id" id="guardian_id" value="">
+            {% for guardian in guardians %}
+            <option value="{{ guardian.id }}">{{ guardian.name }} </option>
+            {% endfor %}
+        </select>
+
+    <input type="submit" value="Update Child">
+</form>
 
 
 
