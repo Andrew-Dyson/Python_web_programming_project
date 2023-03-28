@@ -2,15 +2,22 @@
 
 {% block content %}
 
-<h1>Children - arranged by room</h1>
+<h2>Current Children</h2>
+<br>
 
 {% for staff_member in staff_members %}
+
+<div class="Room-and-staff-name">
     {% for room in rooms  %}
         {% if room.id == staff_member.room %}
-        <h1>Room: {{room.name}}</h1>
+        <h2>Room: {{room.name}}</h2>
         {% endif %}
     {% endfor %}
-        <h1>Staff member: {{staff_member.name}}</h1>
+    <div class="staff-name">
+        <h2>Staff member: {{staff_member.name}}</h2>
+    </div>
+</div>
+
 
 <section class="children-section">
 
@@ -27,10 +34,14 @@
                 <h4> Guardian contact number: {{ guardian.contact_number }} </h4>
                 {% endif %}
             {% endfor %}
-            <form action="/children/delete/{{child.id}}" method="POST">
-            <input type="submit" value="Remove Child from Nursery">
-            </form>
-            <p><a href="/children/{{child.id}}">Update Child Details</a></p>
+            <div class="All-buttons">
+                <form  action="/children/delete/{{child.id}}" method="POST">
+                    <input class="remove-button" type="submit" value="Remove Child from Nursery">
+                </form>
+                    <a href="/children/{{child.id}}">
+                        <button class="update-button" type="button">Update Child Details</button> 
+                    </a>
+            </div>
         </div>
         {% endif %}
     </div>  

@@ -11,9 +11,9 @@ import pdb
 
 # pdb.set_trace()
 
-room_1 = Room("oak tree", id = None)
+room_1 = Room("Oak tree", id = None)
 room_repository.save(room_1)
-room_2 = Room("maple tree", id = None)
+room_2 = Room("Maple tree", id = None)
 room_repository.save(room_2)
 
 guardian_1 = Guardian("John", "06957483746", id = None)
@@ -30,13 +30,13 @@ staff_member_repository.save(staff_member_2)
 
 child_1 = Child("Adele", 210413, "dairy", guardian_1, room_1, staff_member_1)
 child_repository.save(child_1)
-child_2 = Child("Paula", 200115, None, guardian_2, room_2, staff_member_2, id = None)
+child_2 = Child("Paula", 200115, "none", guardian_2, room_2, staff_member_2, id = None)
 child_repository.save(child_2)
-child_3 = Child("Albie", 201020, None, guardian_3, room_1, staff_member_1, id = None)
+child_3 = Child("Albie", 201020, "none", guardian_3, room_1, staff_member_1, id = None)
 child_repository.save(child_3)
 child_4 = Child("Jack", 180430, "gluten", guardian_2, room_2, staff_member_2, id = None)
 child_repository.save(child_4)
-child_5 = Child("Doug", 190623, None, guardian_1, room_2, staff_member_2, id = None)
+child_5 = Child("Doug", 190623, "none", guardian_1, room_2, staff_member_2, id = None)
 child_repository.save(child_5)
 child_6 = Child("Zoe", 220211, "nuts", guardian_3, room_1, staff_member_1, id = None)
 child_repository.save(child_6)

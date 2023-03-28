@@ -5,24 +5,24 @@
 
 body {
     font-family: sans-serif;
-    background-color: rgb(246, 246, 232);
+    background-color: rgb(255, 255, 255);
 }
 
 
 header {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(61, 126, 108);
 
 }
 
 header > h1 {
     font-size: 3rem;
-    color: rgb(42, 110, 78);
-    margin-left: 5px;
+    color: rgb(255, 255, 255);
+    margin-left: 15px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
 .nursery-details {
-    color: rgb(44, 44, 44);
+    color: rgb(255, 255, 255);
     font-size: 1rem;
     padding-left: 5px;
     margin-right: 10px;
@@ -45,7 +45,7 @@ nav ul {
   }
 
 nav ul li a {
-    color: rgb(44, 44, 44);
+    color: rgb(255, 255, 255);
     text-decoration: none;
     font-size: 1.3rem;
     padding-left: 0px;
@@ -63,9 +63,73 @@ nav ul li a {
     background-color: white;
     padding: 10px;
     margin: 20px;
+    text-decoration: none;
 }
 
 .children-section {
     display: flex;
     flex-direction: wrap;
+}
+
+.Room-and-staff-name {
+    display: flex;
+    flex-direction: row;
+    margin-left: 0px;
+}
+
+.staff-name {
+    margin-left: 16px;
+}
+
+
+.All-buttons {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    
+}
+
+.remove-button {
+    background: #28247b;
+  color: #fff;
+  padding: 1px 1px;
+  font-size: 0.90rem;
+  height: 25px;
+  width: 200px;
+  border: 0;
+  border-radius: 5px;
+}
+
+.update-button {
+    background: #28247b;
+    color: #fff;
+    padding: 1px 1px;
+    font-size: 0.90rem;
+    height: 25px;
+    width: 150px;
+    border: 0;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.register-button {
+    background: #28247b;
+    color: #fff;
+    padding: 1px 1px;
+    font-size: 0.90rem;
+    height: 25px;
+    width: 150px;
+    border: 0;
+    border-radius: 5px;
+}
+
+h2 {
+    margin-left: 15px;
+}
+
+h3 {
+    margin-left: 15px;
+}
+h4 {
+    font-size: 1.3rem;
 }
