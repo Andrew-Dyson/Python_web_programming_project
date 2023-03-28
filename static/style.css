@@ -28,11 +28,12 @@ header > h1 {
     margin-right: 10px;
     margin-top: -40px;
     display: flex;
-    justify-content: flex-end;
-    line-height: 3px;
+    flex-direction: column;
+    align-items: flex-end;
+    line-height: 20px;
 }
 nav {
-    height: 5rem;
+    height: 50px;
     padding: 10px;
     display: flex;
     align-items: center;
@@ -64,17 +65,21 @@ nav ul li a {
     padding: 10px;
     margin: 20px;
     text-decoration: none;
+    line-height: 32px;
 }
 
 .children-section {
     display: flex;
     flex-direction: wrap;
+    flex-wrap: wrap;
 }
 
 .Room-and-staff-name {
     display: flex;
     flex-direction: row;
     margin-left: 0px;
+    height: 5px;
+    color:#28247b
 }
 
 .staff-name {
@@ -125,11 +130,77 @@ nav ul li a {
 
 h2 {
     margin-left: 15px;
+    font-size: 2.4rem;
+    color:#28247b
 }
 
 h3 {
     margin-left: 15px;
+    font-size: 1.5rem;
+    color:#28247b;
+    height: 35px;
 }
 h4 {
     font-size: 1.3rem;
+}
+
+footer {
+    background-color: rgb(61, 126, 108);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+footer {
+    background-color: rgb(61, 126, 108);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    height: 40px;
+    position: relative;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+main  {
+    flex: 1;
+  }
+
+.form {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    font-size: 1.5rem;
+    height: 200px;
+    width: 500px
+
+}
+
+input {
+    height: 22px;
+    font-size: 1.2rem;
+    padding: 1px;
+    background-color: #eeeeee;
+    border:1px solid rgb(89, 89, 89);
+    border-radius: 1px;
+
+}
+
+select {
+    height: 25px;
+    font-size: 1.2rem;
+    padding: 1px;
+    background-color: #eeeeee;
+    border:1px solid rgb(89, 89, 89);
+    border-radius: 1px;
+
 }

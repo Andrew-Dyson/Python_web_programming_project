@@ -7,10 +7,15 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>CareHub</title>
 </head>
+<div class="container">
 <header>
     <h1>CareHub</h1>
-    <p class="nursery-details">
-        Forest Nursery, 88 Edinburgh Road, Tel: 01314053902</p>
+        <div class="nursery-details"
+         <p> Forest Nursery</p>
+         <p> 88 Edinburgh Road</p>
+         <p> Tel: 01314053902</p>
+         <p> Email: management@forestnursery.com</p>
+        </div>
     <nav>
         <ul class="menu">
             <li><a href="/">Home</a></li>
@@ -26,8 +31,12 @@
 
 {% endblock %}
 
+<main>
+</main>
 
-<body>
-    
-</body>
+
+<footer>
+    <p class="footer" >CareHub Web Application</p>
+</footer>
+</div>
 </html>

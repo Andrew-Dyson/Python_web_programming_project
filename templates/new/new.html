@@ -2,7 +2,9 @@
 
 {% block content %}
 
-<h1>Register a New Child</h1>
+<h2>Register a New Child</h2>
+<br>
+<div class="form">
 <form class="form" action="/children" method="POST">
     <label for="name">
         <span>Name:</span>
@@ -17,15 +19,16 @@
         <span>Allergies:</span>
         <input id="allergies" name="allergies" type="text">
     </label>
-    <label for="guardian">Guardian</label>
+    <label for="guardian">Select from an existing guardian:</label>
         <select name="guardian_id" id="guardian_id">
             {% for guardian in guardians %}
             <option value="{{ guardian.id }}">{{ guardian.name }} </option>
             {% endfor %}
         </select>
+        <br>
 
     <input class="register-button" type="submit" value="Add Child">
 </form>
-
+</div>
 
 {% endblock %}

@@ -10,11 +10,11 @@
 <div class="Room-and-staff-name">
     {% for room in rooms  %}
         {% if room.id == staff_member.room %}
-        <h2>Room: {{room.name}}</h2>
+        <h3>Room: {{room.name}}</h3>
         {% endif %}
     {% endfor %}
     <div class="staff-name">
-        <h2>Staff member: {{staff_member.name}}</h2>
+        <h3>Staff member: {{staff_member.name}}</h3>
     </div>
 </div>
 
@@ -26,7 +26,7 @@
     <div class="children-by-room">
         {% if child.room == staff_member.room %}
         <div class="child-details">
-        <h4> Name: {{ child.name }} </h4>
+        <h4> Child name: {{ child.name }} </h4>
         <h4> DOB: {{ child.date_of_birth }} </h4>
         <h4> Allergies: {{ child.allergies }} </h4>
             {% for guardian in guardians  %}
@@ -47,9 +47,13 @@
     </div>  
     {% endfor %}
     
+    
+    
 
 
 </section>
+<br>
+
 {% endfor %}
 
 
