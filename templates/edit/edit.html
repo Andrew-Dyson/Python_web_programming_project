@@ -3,7 +3,7 @@
 {% block content %}
 
 <h1>Update Child Details</h1>
-<form class="form" action="/children/<id>" method="POST">
+<form class="form" action="/children/{{child.id}}" method="POST">
     <label for="name">
         <span>Name:</span>
         <input id="name" name="name" type="text" value="{{child.name}}">

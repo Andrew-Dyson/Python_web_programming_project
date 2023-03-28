@@ -52,8 +52,8 @@ child_repository.save(child_6)
 #             print(guardian.contact_number)
 
 
-
-
+# child_7 = Child("Zoe", 220211, "none", guardian_3, room_1, staff_member_1, id = None)
+# child_repository.update(child_7)
 
 # result = child_repository.select(34)
 # print(result.name)
@@ -67,8 +67,8 @@ child_repository.save(child_6)
 # guardian_repository.select()
 # guardian_repository.delete(43)
 
-result = room_repository.select_all()
-print(result[1])
+# result = room_repository.select_all()
+# print(result[1])
 # room_repository.select()
 
 # result_2 = staff_member_repository.select_all()

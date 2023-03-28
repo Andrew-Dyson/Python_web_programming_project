@@ -16,7 +16,9 @@ children_blueprint = Blueprint("children", __name__)
 def children():
     children = child_repository.select_all()
     guardians = guardian_repository.select_all()
-    return render_template("children/children.html", children = children, guardians = guardians)
+    rooms = room_repository.select_all()
+    staff_members = staff_member_repository.select_all()
+    return render_template("children/children.html", children = children, guardians = guardians, rooms = rooms, staff_members = staff_members)
 
 @children_blueprint.route("/children/delete/<id>", methods=['POST'])
 def remove_child(id):
@@ -41,14 +43,15 @@ def register_child():
     staff_members = staff_member_repository.select_all()
     rooms = room_repository.select_all()
     if date_of_birth <= 200830:
-        staff_member = staff_members[0]
-        room = rooms[0]
-    else:
         staff_member = staff_members[1]
         room = rooms[1]
-    new_child = Child(name, date_of_birth, allergies, guardian, room, staff_member)
-    child_repository.save(new_child)
+    else:
+        staff_member = staff_members[0]
+        room = rooms[0]
+    child = Child(name, date_of_birth, allergies, guardian, room, staff_member)
+    child_repository.save(child)
     return redirect("/children")
+
 
 
 @children_blueprint.route("/children/<id>", methods=['GET'])
@@ -69,12 +72,12 @@ def update_child(id):
     staff_members = staff_member_repository.select_all()
     rooms = room_repository.select_all()
     if date_of_birth <= 200830:
-        staff_member = staff_members[0]
-        room = rooms[0]
-    else:
         staff_member = staff_members[1]
         room = rooms[1]
-    new_child = Child(name, date_of_birth, allergies, guardian, room, staff_member)
-    child_repository.save(new_child)
+    else:
+        staff_member = staff_members[0]
+        room = rooms[0]
+    new_child = Child(name, date_of_birth, allergies, guardian, room, staff_member, id)
+    child_repository.update(new_child)
     return redirect("/children")
     

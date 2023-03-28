@@ -2,21 +2,43 @@
 
 {% block content %}
 
-<h1>Children</h1>
+<h1>Children - arranged by room</h1>
 
-{% for child in children %}
-    <h3> Name: {{ child.name }} </h3>
-    <h3> DOB: {{ child.date_of_birth }} </h3>
-    <h3> Allergies: {{ child.allergies }} </h3>
-    {% for guardian in guardians  %}
-        {% if child.guardian == guardian.id %}
-            <h3> Guardian contact number: {{ guardian.contact_number }} </h3>
+{% for staff_member in staff_members %}
+    {% for room in rooms  %}
+        {% if room.id == staff_member.room %}
+        <h1>Room: {{room.name}}</h1>
         {% endif %}
     {% endfor %}
-    <form action="/children/delete/{{child.id}}" method="POST">
-        <input type="submit" value="Remove Child from Nursery">
-    </form>
-    <p><a href="/children/{{child.id}}">Update Child Details</a></p>
+        <h1>Staff member: {{staff_member.name}}</h1>
+
+<section class="children-section">
+
+    
+    {% for child in children %}
+    <div class="children-by-room">
+        {% if child.room == staff_member.room %}
+        <div class="child-details">
+        <h4> Name: {{ child.name }} </h4>
+        <h4> DOB: {{ child.date_of_birth }} </h4>
+        <h4> Allergies: {{ child.allergies }} </h4>
+            {% for guardian in guardians  %}
+                {% if child.guardian == guardian.id %}
+                <h4> Guardian contact number: {{ guardian.contact_number }} </h4>
+                {% endif %}
+            {% endfor %}
+            <form action="/children/delete/{{child.id}}" method="POST">
+            <input type="submit" value="Remove Child from Nursery">
+            </form>
+            <p><a href="/children/{{child.id}}">Update Child Details</a></p>
+        </div>
+        {% endif %}
+    </div>  
+    {% endfor %}
+    
+
+
+</section>
 {% endfor %}
 
 

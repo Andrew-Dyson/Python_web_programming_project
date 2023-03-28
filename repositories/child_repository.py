@@ -15,6 +15,7 @@ def save(child):
     child.id = id
     return child
 
+
 def select_all():
     children = []
     sql = "SELECT * FROM children"
@@ -39,8 +40,6 @@ def select(id):
         child = Child(selected_child['name'], selected_child['date_of_birth'], selected_child['allergies'], guardian, room, staff_member, selected_child['id'])
     return child
 
-def select_by_guardian(guardian_id):
-    sql = "SELECT"
 
 def delete_all():
     sql = "DELETE FROM children"
@@ -53,8 +52,9 @@ def delete(id):
     result = run_sql(sql, values)
     
 def update(child):
-    sql = "UPDATE children SET name = %s WHERE id = %s"
-    values = [child.name, child.id]
+    sql = "UPDATE children SET (name, date_of_birth, allergies, guardian_id) = (%s, %s, %s, %s) WHERE id = %s"
+    values = [child.name, child.date_of_birth, child.allergies, child.guardian.id, child.id]
     run_sql(sql, values)
-    
+
+
 
