@@ -7,6 +7,8 @@ import repositories.guardian_repository as guardian_repository
 import repositories.room_repository as room_repository
 import repositories.staff_member_repository as staff_member_repository
 import pdb
+import datetime
+
 
 
 # pdb.set_trace()
@@ -28,38 +30,25 @@ staff_member_repository.save(staff_member_1)
 staff_member_2 = StaffMember("Elliot", room_2, id = None)
 staff_member_repository.save(staff_member_2)
 
-child_1 = Child("Adele", 210413, "dairy", guardian_1, room_1, staff_member_1)
+child_1 = Child("Adele", "2021-04-13", "dairy", guardian_1, room_1, staff_member_1, id = None)
 child_repository.save(child_1)
-child_2 = Child("Paula", 200115, "none", guardian_2, room_2, staff_member_2, id = None)
+child_2 = Child("Paula", "2020-01-15", "none", guardian_2, room_2, staff_member_2, id = None)
 child_repository.save(child_2)
-child_3 = Child("Albie", 201020, "none", guardian_3, room_1, staff_member_1, id = None)
+child_3 = Child("Albie", "2020-10-20", "none", guardian_3, room_1, staff_member_1, id = None)
 child_repository.save(child_3)
-child_4 = Child("Jack", 180430, "gluten", guardian_2, room_2, staff_member_2, id = None)
+child_4 = Child("Jack", "2018-04-30", "gluten", guardian_2, room_2, staff_member_2, id = None)
 child_repository.save(child_4)
-child_5 = Child("Doug", 190623, "none", guardian_1, room_2, staff_member_2, id = None)
-child_repository.save(child_5)
-child_6 = Child("Zoe", 220211, "nuts", guardian_3, room_1, staff_member_1, id = None)
-child_repository.save(child_6)
-
-# children = child_repository.select_all()
-# guardians = guardian_repository.select_all()
-# for child in children:
-#     print(child.name)  
-#     print(child.date_of_birth)  
-#     print(child.allergies)  
-#     for guardian in guardians:
-#         if child.guardian == guardian.id:
-#             print(guardian.contact_number)
+# child_5 = Child("Doug", "2019-06-23", "none", guardian_1, room_2, staff_member_2, id = None)
+# child_repository.save(child_5)
+# child_6 = Child("Zoe", "2022-05-11", "nuts", guardian_3, room_1, staff_member_1, id = None)
+# child_repository.save(child_6)
 
 
-# child_7 = Child("Zoe", 220211, "none", guardian_3, room_1, staff_member_1, id = None)
-# child_repository.update(child_7)
 
-# result = child_repository.select(34)
-# print(result.name)
-# child_repository.delete_all()
-# child_repository.delete(92)
-# child_repository.update()
+# child_1 = Child("Adele", "2011-04-13", "dairy", guardian_1, room_1, staff_member_1, id = None)
+
+# result = child_repository.update(child_1)
+# print(result)
 
 
 # guardian_repository.delete_all()
@@ -74,3 +63,6 @@ child_repository.save(child_6)
 # result_2 = staff_member_repository.select_all()
 # print(result_2[0])
 # staff_member_repository.select()
+
+# result = x = datetime.datetime.now()
+# print(result)

@@ -28,6 +28,7 @@
         <div class="child-details">
         <h4> Child name: {{ child.name }} </h4>
         <h4> DOB: {{ child.date_of_birth }} </h4>
+        <h4> Age: {{ child.childs_age}} </h4>
         <h4> Allergies: {{ child.allergies }} </h4>
             {% for guardian in guardians  %}
                 {% if child.guardian == guardian.id %}

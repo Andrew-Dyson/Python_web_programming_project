@@ -1,5 +1,5 @@
 from flask import Blueprint, Flask, redirect, render_template, request
-from models.child import Child
+from models.child import *
 from models.guardian import Guardian
 from models.staff_member import StaffMember
 from models.room import Room
@@ -8,6 +8,7 @@ import repositories.guardian_repository as guardian_repository
 import repositories.room_repository as room_repository
 import repositories.staff_member_repository as staff_member_repository
 import pdb
+from datetime import *
 
 children_blueprint = Blueprint("children", __name__)
 
@@ -36,13 +37,19 @@ def new_child():
 @children_blueprint.route("/children", methods=['POST'])
 def register_child():
     name = request.form['name']
-    date_of_birth = int(request.form['date_of_birth'])
+    date_of_birth = request.form['date_of_birth']
     allergies = request.form['allergies']
     guardian_id = request.form['guardian_id']
     guardian = guardian_repository.select(guardian_id)
     staff_members = staff_member_repository.select_all()
     rooms = room_repository.select_all()
-    if date_of_birth <= 200830:
+    
+    date_today = date.today()
+    todays_date = date_today.strftime("%Y/%m/%d")
+    dateofbirth_int = int((date_of_birth[0]) + (date_of_birth[1]) + (date_of_birth[2]) + (date_of_birth[3]) + (date_of_birth[5]) + (date_of_birth[6]) + (date_of_birth[8]) + (date_of_birth[9]))
+    todaysdate_int = int((todays_date[0]) + (todays_date[1]) + (todays_date[2]) + (todays_date[3]) + (todays_date[5]) + (todays_date[6]) + (todays_date[8]) + (todays_date[9]))
+    date_difference = todaysdate_int - dateofbirth_int
+    if date_difference > 30000:
         staff_member = staff_members[1]
         room = rooms[1]
     else:
@@ -65,19 +72,29 @@ def edit_child(id):
 @children_blueprint.route("/children/<id>", methods=['POST'])
 def update_child(id):
     name = request.form['name']
-    date_of_birth = int(request.form['date_of_birth'])
+    date_of_birth = request.form['date_of_birth']
     allergies = request.form['allergies']
     guardian_id = request.form['guardian_id']
     guardian = guardian_repository.select(guardian_id)
     staff_members = staff_member_repository.select_all()
     rooms = room_repository.select_all()
-    if date_of_birth <= 200830:
+    
+    date_today = date.today()
+    todays_date = date_today.strftime("%Y/%m/%d")
+    dateofbirth_int = int((date_of_birth[0]) + (date_of_birth[1]) + (date_of_birth[2]) + (date_of_birth[3]) + (date_of_birth[5]) + (date_of_birth[6]) + (date_of_birth[8]) + (date_of_birth[9]))
+    todaysdate_int = int((todays_date[0]) + (todays_date[1]) + (todays_date[2]) + (todays_date[3]) + (todays_date[5]) + (todays_date[6]) + (todays_date[8]) + (todays_date[9]))
+    date_difference = todaysdate_int - dateofbirth_int
+    if date_difference > 30000:
         staff_member = staff_members[1]
         room = rooms[1]
     else:
         staff_member = staff_members[0]
         room = rooms[0]
-    new_child = Child(name, date_of_birth, allergies, guardian, room, staff_member, id)
-    child_repository.update(new_child)
+    child = Child(name, date_of_birth, allergies, guardian, room, staff_member, id)
+    child_repository.update(child)
     return redirect("/children")
+
+
+
+
     

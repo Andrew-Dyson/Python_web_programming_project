@@ -19,12 +19,13 @@
         <span>Allergies:</span>
         <input id="allergies" name="allergies" type="text">
     </label>
-    <label for="guardian">Select from an existing guardian:</label>
+    <label for="guardian">Select from an existing guardian:
         <select name="guardian_id" id="guardian_id">
             {% for guardian in guardians %}
             <option value="{{ guardian.id }}">{{ guardian.name }} </option>
             {% endfor %}
         </select>
+    </label>
         <br>
 
     <input class="register-button" type="submit" value="Add Child">

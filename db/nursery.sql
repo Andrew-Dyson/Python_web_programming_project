@@ -22,11 +22,12 @@ CREATE TABLE staffmembers (
 CREATE TABLE children (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    date_of_birth INT,
+    date_of_birth DATE,
     allergies VARCHAR (255),
     guardian_id INT NOT NULL REFERENCES guardians(id) ON DELETE CASCADE,
     room_id INT NOT NULL REFERENCES rooms(id) ON DELETE CASCADE,
-    staff_member_id INT NOT NULL REFERENCES staffmembers(id) ON DELETE CASCADE
+    staff_member_id INT NOT NULL REFERENCES staffmembers(id) ON DELETE CASCADE,
+    childs_age VARCHAR(255)
 );
 
 
