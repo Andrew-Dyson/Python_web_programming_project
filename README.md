@@ -9,4 +9,5 @@ Instructions for running
 - From the terminal run the command 'createdb nursery' to create the database
 - Clone the repository to create a local repository
 - Navigate to the repository folder and run the command 'flask run' to start the server
+- Run the command 'psql -d nursery -f nurser.sql' to create the required datebase structure
 - Access the local host address specified in terminal to view the web app
