@@ -9,8 +9,6 @@ import repositories.staff_member_repository as staff_member_repository
 import pdb
 import datetime
 
-
-
 # pdb.set_trace()
 
 room_1 = Room("Oak tree", id = None)
@@ -38,31 +36,4 @@ child_3 = Child("Albie", "2020-10-20", "none", guardian_3, room_1, staff_member_
 child_repository.save(child_3)
 child_4 = Child("Jack", "2018-04-30", "gluten", guardian_2, room_2, staff_member_2, id = None)
 child_repository.save(child_4)
-# child_5 = Child("Doug", "2019-06-23", "none", guardian_1, room_2, staff_member_2, id = None)
-# child_repository.save(child_5)
-# child_6 = Child("Zoe", "2022-05-11", "nuts", guardian_3, room_1, staff_member_1, id = None)
-# child_repository.save(child_6)
 
-
-
-# child_1 = Child("Adele", "2011-04-13", "dairy", guardian_1, room_1, staff_member_1, id = None)
-
-# result = child_repository.update(child_1)
-# print(result)
-
-
-# guardian_repository.delete_all()
-# guardian_repository.select_all()
-# guardian_repository.select()
-# guardian_repository.delete(43)
-
-# result = room_repository.select_all()
-# print(result[1])
-# room_repository.select()
-
-# result_2 = staff_member_repository.select_all()
-# print(result_2[0])
-# staff_member_repository.select()
-
-# result = x = datetime.datetime.now()
-# print(result)

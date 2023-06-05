@@ -12,11 +12,10 @@ class TestChild(unittest.TestCase):
         self.room_1 = Room("Oak tree", id = None)
         self.guardian_1 = Guardian("John", "06957483746", id = None)   
         self.staff_member_1 = StaffMember("Bethan", self.room_1, id = None)
-        self.child_1 = Child("Adele", "2021-04-13", "dairy", self.guardian_1, self.room_1, self.staff_member_1)
-    
+        self.child_1 = Child("Tom", "2021-04-13", "dairy", self.guardian_1, self.room_1, self.staff_member_1, id = None)
 
     def test_child_has_name(self):
-        self.assertEqual("Adele", self.child_1.name)
+        self.assertEqual("Tom", self.child_1.name)
 
 
     def test_child_has_an_age_less_than_year(self):

@@ -54,15 +54,9 @@ def delete(id):
     values = [id]
     result = run_sql(sql, values)
     
-def update(child):
-    # DOB = child.convert_date_of_birth()
-    # childs_age = child.calculate_age_years_months(DOB)
-    
+def update(child): 
     sql = "UPDATE children SET (name, date_of_birth, allergies, guardian_id, room_id, staff_member_id, childs_age) = (%s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
     values = [child.name, child.date_of_birth, child.allergies, child.guardian.id, child.room.id, child.staff_member.id, child.id]
     run_sql(sql, values)
 
-    # sql = "UPDATE children SET (name, date_of_birth, allergies, guardian_id) = (%s, %s, %s, %s) WHERE id = %s"
-    # values = [child.name, child.date_of_birth, child.allergies, child.guardian.id, child.id]
-    # run_sql(sql, values)
 
